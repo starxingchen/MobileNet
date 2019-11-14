@@ -14,9 +14,14 @@
 # ==============================================================================
 """Tests for google3.third_party.tensorflow_models.slim.nets.mobilenet.mobilenet_v3."""
 
+
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
+
+# setup path
+import sys
+sys.path.append('/home/star/my_work/summer_project/models_MobileNet_V3/research/slim')
 
 from absl.testing import absltest
 import tensorflow as tf

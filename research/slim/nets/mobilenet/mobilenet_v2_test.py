@@ -17,11 +17,17 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
+
+# setup path
+import sys
+sys.path.append('/home/star/my_work/summer_project/models_MobileNet_V3/research/slim')
+
 import copy
 import tensorflow as tf
 from nets.mobilenet import conv_blocks as ops
 from nets.mobilenet import mobilenet
 from nets.mobilenet import mobilenet_v2
+
 
 
 slim = tf.contrib.slim
@@ -106,7 +112,7 @@ class MobilenetV2Test(tf.test.TestCase):
         min_depth=32)
     s = [op.outputs[0].get_shape().as_list()[-1] for op in find_ops('Conv2D')]
     s = set(s)
-    self.assertSameElements([32, 64, 96, 160, 192, 320, 384, 576, 960, 1280,
+    self.assertCountEqual([32, 64, 96, 160, 192, 320, 384, 576, 960, 1280,
                              1001], s)
 
   def testDivisibleByWithArgScope(self):
@@ -119,7 +125,7 @@ class MobilenetV2Test(tf.test.TestCase):
           conv_defs=mobilenet_v2.V2_DEF, depth_multiplier=0.1)
       s = [op.outputs[0].get_shape().as_list()[-1] for op in find_ops('Conv2D')]
       s = set(s)
-      self.assertSameElements(s, [32, 192, 128, 1001])
+      self.assertCountEqual(s, [32, 192, 128, 1001])
 
   def testFineGrained(self):
     tf.reset_default_graph()
@@ -133,7 +139,7 @@ class MobilenetV2Test(tf.test.TestCase):
     s = [op.outputs[0].get_shape().as_list()[-1] for op in find_ops('Conv2D')]
     s = set(s)
     # All convolutions will be 8->48, except for the last one.
-    self.assertSameElements(s, [8, 48, 1001, 1280])
+    self.assertCountEqual(s, [8, 48, 1001, 1280])
 
   def testMobilenetBase(self):
     tf.reset_default_graph()
