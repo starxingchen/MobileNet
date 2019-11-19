@@ -6,7 +6,7 @@ print('Start use the checkpoint: ', checkpoint)
 
 # setup path
 import sys
-sys.path.append('/home/star/my_work/summer_project/models_MobileNet_V3/research/slim')
+sys.path.append('H:/my_work/MobileNet/research/slim')
 
 import tensorflow as tf
 from nets.mobilenet import mobilenet_v2

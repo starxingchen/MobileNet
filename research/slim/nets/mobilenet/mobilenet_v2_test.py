@@ -20,7 +20,7 @@ from __future__ import print_function
 
 # setup path
 import sys
-sys.path.append('/home/star/my_work/summer_project/models_MobileNet_V3/research/slim')
+sys.path.append('H:/my_work/MobileNet/research/slim')
 
 import copy
 import tensorflow as tf
