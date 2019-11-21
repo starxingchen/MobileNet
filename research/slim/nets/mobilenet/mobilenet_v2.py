@@ -102,6 +102,16 @@ V2_DEF_GROUP_NORM['defaults'] = {
 
 
 @slim.add_arg_scope
+def fn(a, b, c=3):
+    d = c + b
+    print("=======   a={}, b={}".format(a, b))
+    return d
+
+with slim.arg_scope([fn], a = 11):
+    fn(b = 2)
+
+
+@slim.add_arg_scope
 def mobilenet(input_tensor,
               num_classes=1001,
               depth_multiplier=1.0,

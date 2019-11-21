@@ -66,6 +66,7 @@ class MobilenetV2Test(tf.test.TestCase):
     for i in range(2, 17):
       self.assertIn('layer_%d/depthwise_output' % i, ep)
 
+# """
   def testCreationNoClasses(self):
     spec = copy.deepcopy(mobilenet_v2.V2_DEF)
     net, ep = mobilenet.mobilenet(
@@ -211,6 +212,6 @@ class MobilenetV2Test(tf.test.TestCase):
     sc = mobilenet.training_scope()
     self.assertIn('is_training', sc[slim.arg_scope_func_key(slim.batch_norm)])
 
-
+# """
 if __name__ == '__main__':
   tf.test.main()

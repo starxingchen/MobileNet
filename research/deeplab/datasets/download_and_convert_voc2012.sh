@@ -54,6 +54,7 @@ download_and_uncompress() {
 }
 
 # Download the images.
+# http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar
 BASE_URL="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/"
 FILENAME="VOCtrainval_11-May-2012.tar"
 

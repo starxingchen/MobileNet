@@ -14,6 +14,11 @@
 # ==============================================================================
 
 """Tests for common.py."""
+
+import sys
+sys.path.append('H:/my_work/MobileNet/research/')
+sys.path.append('H:/my_work/MobileNet/research/slim')
+
 import copy
 
 import tensorflow as tf

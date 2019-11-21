@@ -399,6 +399,10 @@ def expanded_conv(input_tensor,
           net.get_shape().as_list()[3] ==
           input_tensor.get_shape().as_list()[3]):
       net += input_tensor
+
+    print("============", net)
+    print("============")
+
     return tf.identity(net, name='output')
 
 

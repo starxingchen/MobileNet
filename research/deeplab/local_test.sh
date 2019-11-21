@@ -22,7 +22,9 @@
 #   sh ./local_test.sh
 #
 #
-
+function pause(){
+   read -p "$*"
+}
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
@@ -35,10 +37,12 @@ export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 # Set up the working environment.
 CURRENT_DIR=$(pwd)
 WORK_DIR="${CURRENT_DIR}/deeplab"
+pause 'pause 1'
+pause $CURRENT_DIR
 
 # Run model_test first to make sure the PYTHONPATH is correctly set.
-python "${WORK_DIR}"/model_test.py -v
-
+# python "${WORK_DIR}"/model_test.py
+pause 'pause 2'
 # Go to datasets folder and download PASCAL VOC 2012 segmentation dataset.
 DATASET_DIR="datasets"
 cd "${WORK_DIR}/${DATASET_DIR}"
@@ -60,7 +64,7 @@ mkdir -p "${TRAIN_LOGDIR}"
 mkdir -p "${EVAL_LOGDIR}"
 mkdir -p "${VIS_LOGDIR}"
 mkdir -p "${EXPORT_DIR}"
-
+pause 'pause 2'
 # Copy locally the trained checkpoint as the initial checkpoint.
 TF_INIT_ROOT="http://download.tensorflow.org/models"
 TF_INIT_CKPT="deeplabv3_pascal_train_aug_2018_01_04.tar.gz"
@@ -70,7 +74,7 @@ tar -xf "${TF_INIT_CKPT}"
 cd "${CURRENT_DIR}"
 
 PASCAL_DATASET="${WORK_DIR}/${DATASET_DIR}/${PASCAL_FOLDER}/tfrecord"
-
+pause 'pause 3'
 # Train 10 iterations.
 NUM_ITERATIONS=10
 python "${WORK_DIR}"/train.py \

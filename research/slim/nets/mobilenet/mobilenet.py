@@ -282,6 +282,7 @@ def mobilenet_base(  # pylint: disable=invalid-name
 
       end_point = 'layer_%d' % (i + 1)
       try:
+        print("<<<<>>>>>", net)
         net = opdef.op(net, **params)
       except Exception:
         print('Failed to create op %i: %r params: %r' % (i, opdef, params))

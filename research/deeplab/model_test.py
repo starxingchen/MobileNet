@@ -17,6 +17,10 @@
 
 import tensorflow as tf
 
+import sys
+sys.path.append('H:/my_work/MobileNet/research/')
+sys.path.append('H:/my_work/MobileNet/research/slim')
+
 from deeplab import common
 from deeplab import model
 
